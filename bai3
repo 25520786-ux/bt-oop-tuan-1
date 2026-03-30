@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+class phanso{
+ private:
+    int tu,mau;
+ public:
+    void nhap(){
+    cin>>tu>>mau;}
+    void xuat(){
+    cout<<tu<<"/"<<mau;}
+    int sosanh(phanso khac){
+    double a1=(double)tu*khac.mau;
+    double a2=(double)mau*khac.tu;
+    if(a1>a2) return 1;
+    else return -1;
+    }
+};
+int main()
+{
+   phanso ps1,ps2;
+   ps1.nhap();
+   ps2.nhap();
+   int check=ps1.sosanh(ps2);
+   if(check==1){
+    ps1.xuat();
+   }
+   else ps2.xuat();
+
+}
