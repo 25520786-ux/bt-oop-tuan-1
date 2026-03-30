@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+class toado{
+ private:
+    int a,b,c,d;
+ public:
+    void nhap(){
+     cin>>a>>b>>c>>d;
+    }
+    void tinh(){
+     int tc;
+     tc=sqrt(pow(c-a,2)+pow(d-b,2));
+     cout<<tc;
+    }
+};
+int main()
+{
+   toado bk;
+   bk.nhap();
+   bk.tinh();
+}
