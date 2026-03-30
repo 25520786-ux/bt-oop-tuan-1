@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+class phanso{
+  private:
+    int tu;
+    int mau;
+  public:
+    void nhap(){
+        cin>>tu;
+        do{
+            cin>>mau;
+            if(mau==0){
+                cout<<"nhap sai hay nhap lai";
+            }
+        }while(mau==0);
+        }
+    void kiemtra(){
+         if(tu==0){
+            cout<<"phan so bang 0";
+         }
+         else if((tu>0 && mau>0) || (tu<0 && mau<0)){
+            cout<<"phan so duong";
+         }
+         else cout<<"phan so am";
+    }
+};
+int main()
+{
+    phanso ps;
+    ps.nhap();
+    ps.kiemtra();
+}
