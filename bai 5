@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+class sothuc{
+      double ao,thuc;
+  public:
+    void nhap(){
+         cin>>thuc>>ao;
+    }
+    void xuat(){
+        if(ao>=0){
+            cout<<thuc<<"+"<<ao<<"i";
+        }
+        else cout<<thuc<<"-"<<abs(ao)<<"i";
+    }
+    sothuc cong(sothuc khac){
+       sothuc kq;
+       kq.thuc=thuc+khac.thuc;
+       kq.ao=ao+khac.ao;
+       return kq;
+    }
+    sothuc tru(sothuc khac){
+       sothuc kq;
+       kq.thuc=thuc-khac.thuc;
+       kq.ao=ao-khac.ao;
+       return kq;
+
+     }
+     sothuc nhan(sothuc khac){
+       sothuc kq;
+       kq.thuc=thuc*khac.thuc-ao*khac.ao;
+       kq.ao=thuc*khac.ao+ao*khac.thuc;
+       return kq;
+     }
+};
+int main()
+{
+   sothuc st1,st2;
+   st1.nhap();
+   st2.nhap();
+   sothuc tong=st1.cong(st2);
+   sothuc hieu=st1.tru(st2);
+   sothuc tich=st1.nhan(st2);
+   cout<<"tong 2 so thuc la: "; tong.xuat(); cout<<endl;
+   cout<<"hieu 2 so thuc la: "; hieu.xuat(); cout<<endl;
+   cout<<"tich 2 so thuc la: "; tich.xuat(); cout<<endl;
+}
