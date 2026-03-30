@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+class phanso{
+private:
+    int tu,mau;
+public:
+    void nhap(){
+    cin>>tu>>mau;
+    }
+    void rutgon(){
+    int n=gcd(tu,mau);
+      tu=tu/n;
+      mau=mau/n;
+    if(mau<0){
+        tu=-tu;
+        mau=-mau;
+    }
+    }
+    void xuat(){
+    rutgon();
+    if(mau==1){
+        cout<<tu;
+    }
+    else cout<<tu<<"/"<<mau;
+    }
+    phanso tong(phanso khac){
+          phanso kq;
+          kq.tu=tu*khac.mau+khac.tu*mau;
+          kq.mau=mau*khac.mau;
+          return kq;
+    }
+    phanso hieu(phanso khac){
+          phanso kq;
+          kq.tu=tu*khac.mau-khac.tu*mau;
+          kq.mau=mau*khac.mau;
+          return kq;
+       }
+    phanso tich(phanso khac){
+          phanso kq;
+          kq.tu=tu*khac.tu;
+          kq.mau=mau*khac.mau;
+          return kq;
+    }
+    phanso thuong(phanso khac){
+          phanso kq;
+          kq.tu=tu*khac.mau;
+          kq.mau=mau*khac.tu;
+          return kq;
+    }
+};
+int main()
+{
+   phanso ps1,ps2;
+   ps1.nhap();
+   ps2.nhap();
+   phanso cong=ps1.tong(ps2);
+   phanso tru=ps1.hieu(ps2);
+   phanso nhan=ps1.tich(ps2);
+   phanso chia=ps1.thuong(ps2);
+   cout<<"tong 2 phan so khi da rut gon la:"; cong.xuat(); cout<<endl;
+      cout<<"hieu 2 phan so khi da rut gon la:"; tru.xuat(); cout<<endl;
+         cout<<"tich 2 phan so khi da rut gon la:"; nhan.xuat(); cout<<endl;
+            cout<<"thuong 2 phan so khi da rut gon la:"; chia.xuat(); cout<<endl;
+}
